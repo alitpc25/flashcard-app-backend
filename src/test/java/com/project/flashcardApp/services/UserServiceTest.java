@@ -161,7 +161,7 @@ class UserServiceTest {
 	void testUpdateOneUserById_whenCalledWithValidRequest_thenShouldReturnUserDto() {
 		//Data
 		Long userId = 1L;
-		UserUpdateRequest request = new UserUpdateRequest("test-username","test-password", "test-new-password");
+		UserUpdateRequest request = new UserUpdateRequest("test-password", "test-new-password");
 		User user = new User(1L, "test-username", "test-email@email.com", true, "test-password", 0);
 		User userToUpdate = new User(1L, "test-username", "test-email@email.com", true, passwordEncoder.encode("test-new-password"), 0);
 		UserDto userDto = new UserDto(1L, "test-username", "test-email@email.com", true, "test-new-password", 0);
@@ -187,7 +187,7 @@ class UserServiceTest {
 	void testUpdateOneUserById_whenCalledWithNonexistentUserId_thenShouldThrowUserNotFoundException() {
 		//Data
 		Long userId = 1L;
-		UserUpdateRequest request = new UserUpdateRequest("test-username","test-password", "test-new-password");
+		UserUpdateRequest request = new UserUpdateRequest("test-password", "test-new-password");
 		
 		//Test case
 		Mockito.when(userRepository.findById(userId)).thenReturn(Optional.empty());
@@ -206,7 +206,7 @@ class UserServiceTest {
 		//Data
 		Long userId = 1L;
 		User user = new User(1L, "test-username", "test-email@email.com", true, "test-password", 0);
-		UserUpdateRequest request = new UserUpdateRequest("test-username","test-password", "test-new-password");
+		UserUpdateRequest request = new UserUpdateRequest("test-password", "test-new-password");
 		
 		//Test case
 		Mockito.when(userRepository.findById(userId)).thenReturn(Optional.of(user));
