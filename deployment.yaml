@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flashcard-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flashcard-app
+  template:
+    metadata:
+      labels:
+        app: flashcard-app
+    spec:
+      containers:
+      - name: flashcard-app
+        image: alitpc2525/flashcard-app:latest
+        ports:
+        - containerPort: 4000
